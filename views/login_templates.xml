@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="login_page_layout" inherit_id="web.login_layout" name="Login Page Layout">
+        <xpath expr="//div[@class='card-body']" position="replace">
+            <div class="card-body">
+                <div t-attf-class="text-center pb-3 border-bottom {{'mb-3' if form_small else 'mb-4'}}">
+                <img t-attf-src="/anem_fleet/static/description/logo_anem.png" alt="Logo" style="max-height:120px; max-width: 100%; width:auto"/>
+            </div>
+                <t t-out="0"/>
+                <div class="text-center small mt-4 pt-3 login--footer" t-if="not disable_footer">
+            </div>
+            </div>
+        </xpath>
+    </template>
+
+</odoo>
+
+

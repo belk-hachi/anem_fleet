@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- main view form for fleet-->
+    <record id="fleet_vehicle_view_form_anem" model="ir.ui.view">
+        <field name="name">fleet.vehicle.form.anem</field>
+        <field name="model">fleet.vehicle</field>
+        <field name="inherit_id" ref="fleet.fleet_vehicle_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='category_id']"  position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='acquisition_date']"  position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='write_off_date']"  position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='location']"  position="replace">
+            </xpath>
+            <xpath expr="//field[@name='driver_id']"  position="replace">
+                <field name="driver_id" domain="['&amp;',('is_company', '=', False), '|', ('company_id', '=', False ), ('company_id', '=', company_id)]"/>
+            </xpath>
+            <xpath expr="//field[@name='future_driver_id']"  position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='plan_to_change_car']"  position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='plan_to_change_bike']"  position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='next_assignation_date']"  position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='driver_id']"  position="after">
+               <field name="location"/>
+            </xpath>
+            <xpath expr="//notebook/page[1]" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+             <xpath expr="//notebook/page[2]" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//button[@name='return_action_to_open']" position="replace">
+                <button name="return_action_to_open_fuel"
+                            type="object"
+                            class="oe_stat_button text-dangesr"
+                            icon="fa-credit-card-alt"
+                            context="{'xml_id':'fleet_vehicle_log_fuels_action', 'search_default_inactive': not active}"
+                            help="show the fuels logs for this vehicle">
+                            <field name="fuel_count" widget="statinfo" string="Carburants"/>
+                </button>
+            </xpath>
+            <xpath expr="//div[@class='oe_chatter']" position="replace">
+                <div class="oe_chatter">
+                    <field name="activity_ids"/>
+                </div>
+            </xpath>
+        </field>
+    </record>
+
+    <!--  view from Hr inheritance of fleet views-->
+    <record id="fleet_vehicle_view_form__hr_anem" model="ir.ui.view">
+        <field name="name">fleet.vehicle.form.hr.anem</field>
+        <field name="model">fleet.vehicle</field>
+        <field name="inherit_id" ref="hr_fleet.fleet_vehicle_view_form_inherit_hr"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='mobility_card']"  position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!--  view from assignation_log_view_list of fleet -->
+    <record id="fleet_vehicle_assignation_log_view_list_anem" model="ir.ui.view">
+        <field name="name">fleet.vehicle.assignation.log.view.tree.inherit.hr.fleet.anem</field>
+        <field name="model">fleet.vehicle.assignation.log</field>
+        <field name="inherit_id" ref="hr_fleet.fleet_vehicle_assignation_log_view_list" />
+        <field name="arch" type="xml">
+
+            <field name="driver_id" position="after">
+                <field name="note" string="Description"/>
+            </field>
+             <field name="driver_id" position="attributes">
+                <attribute name="domain">[('is_company', '=', False)]</attribute>
+            </field>
+            <field name="vehicle_id" position="attributes">
+                <attribute name="readonly">1</attribute>
+            </field>
+            <xpath expr="//field[@name='attachment_number']" position="attributes">
+                <attribute name="optional">hide</attribute>
+            </xpath>
+            <xpath expr="//field[@name='driver_employee_id']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+        </field>
+    </record>
+    <!-- change the default view of board to list -->
+    <record id='fleet.fleet_vehicle_action' model='ir.actions.act_window'>
+        <field name="view_mode">tree,kanban,form,pivot,activity</field>
+    </record>
+
+    <!-- main view form for fleet-->
+    <record id="fleet_vehicle_view_tree_anem" model="ir.ui.view">
+        <field name="name">fleet.vehicle.tree.anem</field>
+        <field name="model">fleet.vehicle</field>
+        <field name="inherit_id" ref="fleet.fleet_vehicle_view_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='category_id']"  position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='manager_id']"  position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='future_driver_id']"  position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='co2']"  position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='acquisition_date']"  position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='contract_state']"  position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='state_id']"  position="attributes">
+                <attribute name="optional">show</attribute>
+            </xpath>
+            <xpath expr="//tree" position="attributes">
+                <attribute name="default_order">state_id asc</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- heratated  view form from hr_fleet-->
+    <record id="fleet_vehicle_view_tree_hr_anem" model="ir.ui.view">
+        <field name="name">fleet.vehicle.tree.hr.anem</field>
+        <field name="model">fleet.vehicle</field>
+        <field name="inherit_id" ref="hr_fleet.fleet_vehicle_view_tree_inherit_hr"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='driver_employee_id']"  position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='future_driver_employee_id']"  position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <record id='fleet_vehicle_odometer_view_tree_anem' model='ir.ui.view'>
+        <field name="name">fleet.vehicle.odometer.tree.anem</field>
+        <field name="model">fleet.vehicle.odometer</field>
+        <field name="inherit_id" ref="fleet.fleet_vehicle_odometer_view_tree"/>
+        <field name="arch" type="xml">
+            <field name="driver_id" position="attributes">
+                <attribute name="domain">[('is_company', '=', False)]</attribute>
+            </field>
+        </field>
+    </record>
+
+
+
+</odoo>
