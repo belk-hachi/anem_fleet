@@ -1,4 +1,4 @@
-from odoo import fields, models
+from odoo import fields, models, api
 
 
 class FleetVehicleAssignationLog(models.Model):
@@ -11,8 +11,10 @@ class FleetVehicleAssignationLog(models.Model):
 
     note = fields.Char(help='Description')
 
-    company_id = fields.Integer(compute="_compute_company_id", string='Company', store=True)
+    company_id = fields.Integer(compute="_compute_company_id", string='Company')
 
+    # get the company_id from the vehicle for domain
+    @api.depends("vehicle_id")
     def _compute_company_id(self):
-
-        print("ALLAH AKBAR")
+        for record in self:
+            record.company_id = record.vehicle_id.company_id

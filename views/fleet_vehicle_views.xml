@@ -81,17 +81,20 @@
             <field name="driver_id" position="after">
                 <field name="note" string="Description"/>
             </field>
+            <xpath expr="//field[@name='driver_employee_id']" position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='driver_employee_id']" position="after">
+                <field name="company_id" invisible="True"/>
+            </xpath>
              <field name="driver_id" position="attributes">
-                <attribute name="domain">[('is_company', '=', False)]</attribute>
+                <attribute name="domain">['&amp;',('is_company', '=', False), '|', ('company_id', '=', False ), ('company_id', '=', company_id)]</attribute>
             </field>
             <field name="vehicle_id" position="attributes">
                 <attribute name="readonly">1</attribute>
             </field>
             <xpath expr="//field[@name='attachment_number']" position="attributes">
                 <attribute name="optional">hide</attribute>
-            </xpath>
-            <xpath expr="//field[@name='driver_employee_id']" position="attributes">
-                <attribute name="invisible">True</attribute>
             </xpath>
         </field>
     </record>
@@ -154,7 +157,10 @@
         <field name="inherit_id" ref="fleet.fleet_vehicle_odometer_view_tree"/>
         <field name="arch" type="xml">
             <field name="driver_id" position="attributes">
-                <attribute name="domain">[('is_company', '=', False)]</attribute>
+                <attribute name="domain">['&amp;',('is_company', '=', False), '|', ('company_id', '=', False ), ('company_id', '=', company_id)]</attribute>
+            </field>
+            <field name="unit" position="after">
+                <field name="company_id" optional="hide"/>
             </field>
         </field>
     </record>
