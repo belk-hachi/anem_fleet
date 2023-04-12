@@ -2,12 +2,13 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 from collections import defaultdict
 
-from odoo import _, fields, models
+from odoo import _, fields, models, api, tools
 
 
 class FleetVehicle(models.Model):
     _inherit = 'fleet.vehicle'
 
+    photo = fields.Image(string="Image", max_width=600 , max_height=400 , help="La photo de la voiture")
 
     fuel_count = fields.Integer(compute="_compute_count_all", string='Fuel Count')
     service_count = fields.Integer(compute="_compute_count_all", string='Services')

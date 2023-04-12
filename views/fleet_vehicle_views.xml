@@ -35,8 +35,14 @@
             <xpath expr="//field[@name='driver_id']"  position="after">
                <field name="location"/>
             </xpath>
+
             <xpath expr="//notebook/page[1]" position="attributes">
                 <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//notebook/page[3]" position="before">
+                <page string="Photo">
+                    <field name="photo" widget="image" />
+                </page>
             </xpath>
              <xpath expr="//notebook/page[2]" position="attributes">
                 <attribute name="invisible">True</attribute>
