@@ -1,2 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 anem_fleet.access_fleet_vehicle_log_fuels,access_fleet_vehicle_log_fuels,anem_fleet.model_fleet_vehicle_log_fuels,base.group_user,1,1,1,1
+anem_fleet.access_fleet_vehicle_log_services_lines,access_fleet_vehicle_log_services_lines,anem_fleet.model_fleet_vehicle_log_services_lines,base.group_user,1,1,1,1
+anem_fleet.access_fleet_vehicle_log_services_operation,access_fleet_vehicle_log_services_operation,anem_fleet.model_fleet_vehicle_log_services_operation,base.group_user,1,1,1,1

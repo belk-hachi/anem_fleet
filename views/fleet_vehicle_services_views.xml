@@ -6,14 +6,61 @@
         <field name="model">fleet.vehicle.log.services</field>
         <field name="inherit_id" ref="fleet.fleet_vehicle_log_services_view_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='vendor_id']"  position="replace">
+            <xpath expr="//field[@name='vendor_id']" position="replace">
                 <field name="vendor"/>
                 <field name="facture"/>
                 <field name="company_id" invisible="1"/>
             </xpath>
             <field name="purchaser_id" position="attributes">
-                <attribute name="domain">['&amp;',('is_company', '=', False), '|', ('company_id', '=', False ), ('company_id', '=', company_id)]</attribute>
+                <attribute name="domain">['&amp;',('is_company', '=', False), '|', ('company_id', '=', False ),
+                    ('company_id', '=', company_id)]
+                </attribute>
             </field>
+            <xpath expr="//field[@name='notes']" position="replace">
+            </xpath>
+            <xpath expr="//separator" position="replace">
+                <notebook>
+                    <page string="Service Details">
+                        <field name="pieces_lines">
+                            <tree editable="bottom">
+                                <field name="operation_id" string="Nature de l'opération"/>
+                                <field name="qty" string="Qty"/>
+                                <field name="operation_price" string="Prix U" widget="monetary"/>
+                                <field name="total_amount" string="Montant Total" widget="monetary"/>
+                                <field name="service_id" invisible="1"/>
+                            </tree>
+                            <form>
+                                <group>
+                                    <group>
+                                        <field name="operation_id" string="Nature de l'opération"/>
+                                        <field name="operation_price" string="Montant" widget="monetary"/>
+                                    </group>
+                                    <group>
+                                        <field name="qty" string="Quantité"/>
+                                        <field name="total_amount" string="Montant TOTAL" widget="monetary"/>
+                                    </group>
+
+                                </group>
+                            </form>
+                        </field>
+                        <group col="12" class="oe_invoice_lines_tab">
+                            <group colspan="8">
+                            </group>
+                            <group colspan="4">
+                                <group class="oe_subtotal_footer oe_right">
+                                    <field name="amount"/>
+                                </group>
+                            </group>
+                        </group>
+                    </page>
+                    <page string="informations supplémentaires ">
+                        <field name="notes"
+                               placeholder="Write here any other information related to the service completed."/>
+                    </page>
+                </notebook>
+
+
+            </xpath>
         </field>
     </record>
 
@@ -23,11 +70,13 @@
         <field name="model">fleet.vehicle.log.services</field>
         <field name="inherit_id" ref="fleet.fleet_vehicle_log_services_view_tree"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='vendor_id']"  position="replace">
+            <xpath expr="//field[@name='vendor_id']" position="replace">
                 <field name="vendor"/>
-                <field name="odometer" />
-            </xpath><xpath expr="//field[@name='state']"  position="after">
-                <field name="company_id" optional="hide" />
+                <field name="odometer"/>
+            </xpath>
+            <xpath expr="//field[@name='state']" position="after">
+                <field name="company_id" optional="hide"/>
+                <field name="facture" string="N° Facture" optional="hide"/>
             </xpath>
         </field>
     </record>
@@ -36,11 +85,10 @@
         <field name="model">fleet.vehicle.log.services</field>
         <field name="inherit_id" ref="hr_fleet.fleet_vehicle_log_services_view_tree_inherit_hr"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='purchaser_employee_id']"  position="replace">
+            <xpath expr="//field[@name='purchaser_employee_id']" position="replace">
             </xpath>
         </field>
     </record>
-
 
 
 </odoo>

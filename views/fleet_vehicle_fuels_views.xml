@@ -57,6 +57,8 @@
                 <field name="notes" optional="show" />
                 <field name="amount" sum="Total" widget="monetary"/>
                 <field name="currency_id" invisible="1"/>
+                <field name="bon" optional="show"/>
+                <field name="odometer" optional="show"/>
                 <field name="state" readonly="1" widget="badge" decoration-success="state == 'done'" decoration-warning="state == 'new'"  decoration-info="state == 'running'" />
             </tree>
         </field>

@@ -7,3 +7,4 @@ from . import fleet_vehicle
 from . import fleet_vehicle_assignation_log
 from . import fleet_vehicle_log_fuels
 from . import fleet_vehicle_odometer
+from . import fleet_vehicle_log_services_operation
