@@ -12,6 +12,7 @@
         'views/fleet_vehicle_views.xml',
         'views/fleet_vehicle_fuels_views.xml',
         'views/fleet_vehicle_services_views.xml',
+        'views/fleet_vehicle_services_operation_views.xml',
         'views/login_templates.xml',
     ],
     'demo': [],

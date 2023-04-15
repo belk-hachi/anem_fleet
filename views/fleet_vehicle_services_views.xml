@@ -16,51 +16,6 @@
                     ('company_id', '=', company_id)]
                 </attribute>
             </field>
-            <xpath expr="//field[@name='notes']" position="replace">
-            </xpath>
-            <xpath expr="//separator" position="replace">
-                <notebook>
-                    <page string="Service Details">
-                        <field name="pieces_lines">
-                            <tree editable="bottom">
-                                <field name="operation_id" string="Nature de l'opération"/>
-                                <field name="qty" string="Qty"/>
-                                <field name="operation_price" string="Prix U" widget="monetary"/>
-                                <field name="total_amount" string="Montant Total" widget="monetary"/>
-                                <field name="service_id" invisible="1"/>
-                            </tree>
-                            <form>
-                                <group>
-                                    <group>
-                                        <field name="operation_id" string="Nature de l'opération"/>
-                                        <field name="operation_price" string="Montant" widget="monetary"/>
-                                    </group>
-                                    <group>
-                                        <field name="qty" string="Quantité"/>
-                                        <field name="total_amount" string="Montant TOTAL" widget="monetary"/>
-                                    </group>
-
-                                </group>
-                            </form>
-                        </field>
-                        <group col="12" class="oe_invoice_lines_tab">
-                            <group colspan="8">
-                            </group>
-                            <group colspan="4">
-                                <group class="oe_subtotal_footer oe_right">
-                                    <field name="amount"/>
-                                </group>
-                            </group>
-                        </group>
-                    </page>
-                    <page string="informations supplémentaires ">
-                        <field name="notes"
-                               placeholder="Write here any other information related to the service completed."/>
-                    </page>
-                </notebook>
-
-
-            </xpath>
         </field>
     </record>
 
@@ -80,6 +35,7 @@
             </xpath>
         </field>
     </record>
+
     <record id='fleet_vehicle_log_services_view_tree_hr_anem' model='ir.ui.view'>
         <field name="name">fleet.vehicle.log.services.tree.hr.anem</field>
         <field name="model">fleet.vehicle.log.services</field>

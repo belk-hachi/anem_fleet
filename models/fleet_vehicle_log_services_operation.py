@@ -16,11 +16,11 @@ class FleetVehicleLogServicesLines(models.Model):
     _description = 'Les prix'
 
     service_id = fields.Many2one('fleet.vehicle.log.services', string='Interventions ID')
-    operation_id = fields.Many2one('fleet.vehicle.log.services.operation', string="Nature de l'opération")
+    operation_id = fields.Many2one('fleet.vehicle.log.services.operation', string="Nature de l'opération", require=True)
     qty = fields.Integer(string="Quantité", default=1)
-    currency_id = fields.Many2one("res.currency", string="currency", required=True)
-    operation_price = fields.Monetary(string='Montant' , currency_field="currency_id")
-    total_amount = fields.Monetary(string='Montant', compute="_count_total_amount" , currency_field="currency_id")
+    currency_id = fields.Many2one("res.currency", string="currency")
+    operation_price = fields.Monetary(string='Montant', currency_field="currency_id")
+    total_amount = fields.Monetary(string='Montant', compute="_count_total_amount", currency_field="currency_id")
 
     @api.depends('qty')
     def _count_total_amount(self):

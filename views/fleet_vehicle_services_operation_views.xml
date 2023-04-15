@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- modification de la vue service formulaire -->
+    <record id='fleet_vehicle_log_services_view_form_operation_anem' model='ir.ui.view'>
+        <field name="name">fleet.vehicle.log.services.form.operation.anem</field>
+        <field name="model">fleet.vehicle.log.services</field>
+        <field name="inherit_id" ref="fleet.fleet_vehicle_log_services_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='notes']" position="replace">
+            </xpath>
+            <xpath expr="//separator" position="replace">
+                <notebook>
+                    <page string="Service Details">
+                        <field name="pieces_lines">
+                            <tree editable="bottom">
+                                <field name="operation_id" string="Nature de l'opération"/>
+                                <field name="qty" string="Qty"/>
+                                <field name="operation_price" string="Prix U" widget="monetary"/>
+                                <field name="total_amount" string="Montant Total" widget="monetary"/>
+                                <field name="service_id" invisible="1"/>
+                            </tree>
+                            <form>
+                                <group>
+                                    <group>
+                                        <field name="operation_id" string="Nature de l'opération"/>
+                                        <field name="operation_price" string="Montant" widget="monetary"/>
+                                    </group>
+                                    <group>
+                                        <field name="qty" string="Quantité"/>
+                                        <field name="total_amount" string="Montant TOTAL" widget="monetary"/>
+                                    </group>
+
+                                </group>
+                            </form>
+                        </field>
+                        <group col="12" class="oe_invoice_lines_tab">
+                            <group colspan="8">
+                            </group>
+                            <group colspan="4">
+                                <group class="oe_subtotal_footer oe_right">
+                                    <field name="amount" string="TOTAL Intervention"/>
+                                </group>
+                            </group>
+                        </group>
+                    </page>
+                    <page string="informations supplémentaires ">
+                        <field name="notes"
+                               placeholder="Write here any other information related to the service completed."/>
+                    </page>
+                </notebook>
+            </xpath>
+        </field>
+    </record>
+
+    <record id='fleet_vehicle_service_operation_anem' model='ir.actions.act_window'>
+        <field name="name">Les opérations</field>
+        <field name="res_model">fleet.vehicle.log.services.operation</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Crée une nouvelle opération
+          </p><p>
+            Chaque opération utilisé dans une intervention.
+          </p>
+        </field>
+    </record>
+
+    <menuitem
+            action="anem_fleet.fleet_vehicle_service_operation_anem"
+            parent="fleet.fleet_services_configuration"
+            name="Operations"
+            id="fleet_vehicle_service_operation_menu"
+            sequence="2"
+            groups="base.group_no_one"/>
+</odoo>
