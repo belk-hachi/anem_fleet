@@ -56,7 +56,7 @@
         <field name="name">fleet.vehicle.log.services.lines.tree</field>
         <field name="model">fleet.vehicle.log.services.lines</field>
         <field name="arch" type="xml">
-            <tree string="operation Logs" >
+            <tree string="operation Logs" create="false">
                <field name="date" />
                <field name="vehicle_id" />
                <field name="operation_id" />

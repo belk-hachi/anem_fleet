@@ -27,7 +27,16 @@ class FleetVehicleLogServices(models.Model):
         for record in self:
             pass
 
-
-
-
-
+    def action_extraire_details(self):
+        records = []
+        for record in self:
+            records.append(record.id)
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Intervention details',
+            'res_model': 'fleet.vehicle.log.services.lines',
+            'view_type': 'tree',
+            'domain': [('service_id', 'in', records)],
+            'view_mode': 'tree',
+            'target': 'current',
+        }

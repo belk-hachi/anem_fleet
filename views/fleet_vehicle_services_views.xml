@@ -25,7 +25,13 @@
         <field name="model">fleet.vehicle.log.services</field>
         <field name="inherit_id" ref="fleet.fleet_vehicle_log_services_view_tree"/>
         <field name="arch" type="xml">
+            <xpath expr="//tree" position="inside">
+                <header>
+                    <button name="action_extraire_details" type="object" string="Extraire en" class="btn-primary"/>
+                </header>
+            </xpath>
             <xpath expr="//field[@name='vendor_id']" position="replace">
+                <field name="amount"/>
                 <field name="vendor"/>
                 <field name="odometer"/>
             </xpath>
