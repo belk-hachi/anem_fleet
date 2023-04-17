@@ -10,7 +10,7 @@ class FleetVehicleAssignationLog(models.Model):
                                          compute='_compute_driver_employee_id', store=True, readonly=False)
 
     note = fields.Char(help='Description')
-
+    # i need to fix this and turn it to related field
     company_id = fields.Integer(compute="_compute_company_id", string='Company')
 
     # get the company_id from the vehicle for domain

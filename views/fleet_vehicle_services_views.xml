@@ -32,6 +32,7 @@
             <xpath expr="//field[@name='state']" position="after">
                 <field name="company_id" optional="hide"/>
                 <field name="facture" string="N° Facture" optional="hide"/>
+                <field name="pieces_lines" string="Details" widget="many2many_tags" optional="hide"/>
             </xpath>
         </field>
     </record>
