@@ -1,5 +1,34 @@
 <?xml version="1.0" ?>
 <odoo>
+    <record id="module_anem_fleet_category" model="ir.module.category">
+        <field name="name">Anem Flotte</field>
+        <field name="sequence">16</field>
+    </record>
+    <record id="fleet_group_anem_user" model="res.groups">
+        <field name="name">Utilisateur wilaya</field>
+        <field name="category_id" ref="anem_fleet.module_anem_fleet_category"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+    <record id="fleet_groupa_anem_consult" model="res.groups">
+        <field name="name">Consultation</field>
+        <field name="category_id" ref="anem_fleet.module_anem_fleet_category"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+    <record id="fleet_group_anem_admin" model="res.groups">
+        <field name="name">Admin flotte</field>
+        <field name="category_id" ref="anem_fleet.module_anem_fleet_category"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+
+
+    <!-- remove HR and App menus -->
+    <record model="ir.ui.menu" id="hr.menu_hr_root">
+        <field name="groups_id" eval="[(6,0,[ref('base.group_system')])]"/>
+    </record>
+    <record model="ir.ui.menu" id="base.menu_management">
+        <field name="groups_id" eval="[(6,0,[ref('base.group_system')])]"/>
+    </record>
+
     <data noupdate="1">
         <record id="anem_rule_fleet_log_fuels" model="ir.rule">
             <field name="name">Fleet log fuels: Multi Company</field>

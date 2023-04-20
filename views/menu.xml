@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <menuitem name="Fleet" id="fleet.menu_root" sequence="1"
+              groups="anem_fleet.fleet_group_anem_user" web_icon="fleet,static/description/icon.svg"/>
+    <menuitem name="Fleet" parent="fleet.menu_root" id="fleet.fleet_vehicles" sequence="2"
+              groups="anem_fleet.fleet_group_anem_user"/>
+    <menuitem action="fleet.fleet_vehicle_action" parent="fleet.fleet_vehicles" name="Fleet"
+              id="fleet.fleet_vehicle_menu"
+              groups="anem_fleet.fleet_group_anem_user" sequence="0"/>
+    <menuitem action="fleet.fleet_vehicle_log_services_action" parent="fleet.fleet_vehicles"
+              id="fleet.fleet_vehicle_log_services_menu"
+              groups="anem_fleet.fleet_group_anem_user" sequence="3"/>
+    <menuitem action="fleet.fleet_vehicle_odometer_action" parent="fleet.fleet_vehicles"
+              id="fleet.fleet_vehicle_odometer_menu"
+              groups="anem_fleet.fleet_group_anem_user" sequence="10"/>
+</odoo>

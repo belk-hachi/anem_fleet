@@ -1,4 +1,5 @@
-from odoo import api, fields, models
+from odoo import api, fields, models, _
+from odoo.exceptions import UserError
 
 
 class FleetVehicleLogfuels(models.Model):
@@ -19,3 +20,16 @@ class FleetVehicleLogfuels(models.Model):
     ], default='carte_naftal', string='Moyen de paiement ')
 
     bon = fields.Char('N° de bon')
+
+    def _set_odometer(self):
+        for record in self:
+            if not record.odometer:
+                raise UserError(_('Emptying the odometer value of a vehicle is not allowed.'))
+            check_existing = self.env['fleet.vehicle.odometer'].search(
+                [('value', '=', record.odometer),
+                 ('date', '=', record.date ),
+                 ('vehicle_id', '=', record.vehicle_id.id)])
+            if not check_existing :
+                return super(FleetVehicleLogfuels, self)._set_odometer()
+            else:
+                self.odometer_id = check_existing

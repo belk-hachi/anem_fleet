@@ -11,6 +11,7 @@
                 <field name="facture"/>
                 <field name="company_id" invisible="1"/>
             </xpath>
+            <xpath expr="//field[@name='description']" position="replace"></xpath>
             <field name="purchaser_id" position="attributes">
                 <attribute name="domain">['&amp;',('is_company', '=', False), '|', ('company_id', '=', False ),
                     ('company_id', '=', company_id)]
@@ -27,7 +28,7 @@
         <field name="arch" type="xml">
             <xpath expr="//tree" position="inside">
                 <header>
-                    <button name="action_extraire_details" type="object" string="Extraire en" class="btn-primary"/>
+                    <button name="action_extraire_details" type="object" string="Extraire en details" class="btn-primary"/>
                 </header>
             </xpath>
             <xpath expr="//field[@name='vendor_id']" position="replace">
