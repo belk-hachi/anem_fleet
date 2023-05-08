@@ -23,12 +23,12 @@ class FleetVehicleLogfuels(models.Model):
 
     def _set_odometer(self):
         for record in self:
-            if not record.odometer:
+            if not record.odometer or record.odometer == 0 :
                 raise UserError(_('Emptying the odometer value of a vehicle is not allowed.'))
             check_existing = self.env['fleet.vehicle.odometer'].search(
                 [('value', '=', record.odometer),
                  ('date', '=', record.date ),
-                 ('vehicle_id', '=', record.vehicle_id.id)])
+                 ('vehicle_id', '=', record.vehicle_id.id)], limit=1, order='value desc' )
             if not check_existing :
                 return super(FleetVehicleLogfuels, self)._set_odometer()
             else:
