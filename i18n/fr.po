@@ -444,6 +444,14 @@ msgstr ""
 msgid "show the fuels logs for this vehicle"
 msgstr ""
 
+#. module: anem_fleet
+#: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle__history_count
+msgid "Drivers History Count"
+msgstr "Missions"
 
+#. module: anem_fleet
+#: model:ir.model,name:anem_fleet.model_fleet_vehicle_assignation_log
+msgid "Drivers history on a vehicle"
+msgstr "Missions"
 
 

@@ -23,6 +23,9 @@
             <xpath expr="//field[@name='future_driver_id']"  position="attributes">
                 <attribute name="invisible">True</attribute>
             </xpath>
+            <xpath expr="//field[@name='manager_id']"  position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
             <xpath expr="//field[@name='plan_to_change_car']"  position="attributes">
                 <attribute name="invisible">True</attribute>
             </xpath>
@@ -42,6 +45,9 @@
             <xpath expr="//notebook/page[3]" position="before">
                 <page string="Photo">
                     <field name="photo" widget="image" />
+                </page>
+                <page string="Carte grise">
+                    <field name="cgrise" widget="image" />
                 </page>
             </xpath>
              <xpath expr="//notebook/page[2]" position="attributes">
