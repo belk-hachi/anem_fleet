@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0-20230323\n"
+"Project-Id-Version: Odoo Server 16.0-20230322\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-29 23:41+0000\n"
-"PO-Revision-Date: 2023-03-29 23:41+0000\n"
+"POT-Creation-Date: 2023-07-16 10:27+0000\n"
+"PO-Revision-Date: 2023-07-16 10:27+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,60 +16,59 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: anem_fleet
-#: model:ir.model,name:anem_fleet.model_fleet_vehicle_log_services
-msgid "Services for vehicles"
-msgstr "Interventions associées aux véhicules"
-
-#. module: anem_fleet
-#: model:ir.model.fields,field_description:fleet.field_fleet_vehicle__location
-msgid "Location"
-msgstr "Lieu de stationnement"
-
-#. module: anem_fleets
-#: model:ir.model.fields,help:fleet.field_fleet_vehicle__location
-msgid "Location of the vehicle (garage, ...)"
-msgstr "Lieu du véhicule (Agence, ...)"
-
-
-#. module: anem_fleet
 #: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_fuels__message_needaction
 msgid "Action Needed"
-msgstr ""
+msgstr "Nécessite une action"
 
 #. module: anem_fleet
 #: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_fuels__active
 msgid "Active"
-msgstr ""
+msgstr "Actif"
 
 #. module: anem_fleet
 #: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_fuels__activity_ids
 msgid "Activities"
-msgstr ""
+msgstr "Activités"
 
 #. module: anem_fleet
 #: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_fuels__activity_exception_decoration
 msgid "Activity Exception Decoration"
-msgstr ""
+msgstr "Activité d'exception de décoration"
 
 #. module: anem_fleet
 #: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_fuels__activity_state
 msgid "Activity State"
-msgstr ""
+msgstr "Status de l'activité"
 
 #. module: anem_fleet
 #: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_fuels__activity_type_icon
 msgid "Activity Type Icon"
+msgstr "Icône de type d'activité"
+
+#. module: anem_fleet
+#: model:res.groups,name:anem_fleet.fleet_group_anem_admin
+msgid "Admin flotte"
+msgstr ""
+
+#. module: anem_fleet
+#: model:res.groups,name:anem_fleet.fleet_group_anem_admin58
+msgid "Admininistrateur 58"
+msgstr ""
+
+#. module: anem_fleet
+#: model:ir.module.category,name:anem_fleet.module_anem_fleet_category
+msgid "Anem Flotte"
 msgstr ""
 
 #. module: anem_fleet
 #: model_terms:ir.ui.view,arch_db:anem_fleet.fleet_vehicle_log_fuels_view_form
 msgid "Archived"
-msgstr ""
+msgstr "Archivé"
 
 #. module: anem_fleet
 #: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_fuels__message_attachment_count
 msgid "Attachment Count"
-msgstr ""
+msgstr "Nombre de pièces jointes"
 
 #. module: anem_fleet
 #: model:ir.model.fields.selection,name:anem_fleet.selection__fleet_vehicle_log_fuels__payment_method__autre
@@ -79,7 +78,7 @@ msgstr ""
 #. module: anem_fleet
 #: model:ir.model.fields.selection,name:anem_fleet.selection__fleet_vehicle_log_fuels__payment_method__bon_carburant
 msgid "Bon de carburant"
-msgstr "Bon de carburant"
+msgstr ""
 
 #. module: anem_fleet
 #: model:ir.model.fields.selection,name:anem_fleet.selection__fleet_vehicle_log_fuels__state__cancelled
@@ -90,8 +89,9 @@ msgstr "Annulé"
 #. module: anem_fleet
 #: model:ir.actions.act_window,name:anem_fleet.fleet_vehicle_log_fuels_action
 #: model:ir.ui.menu,name:anem_fleet.fleet_vehicle_log_fuels_menu
+#: model_terms:ir.ui.view,arch_db:anem_fleet.fleet_vehicle_view_form_anem
 msgid "Carburants"
-msgstr "Carburants"
+msgstr ""
 
 #. module: anem_fleet
 #: model:ir.model.fields.selection,name:anem_fleet.selection__fleet_vehicle_log_fuels__payment_method__carte_naftal
@@ -99,54 +99,98 @@ msgid "Carte NAFTAL"
 msgstr ""
 
 #. module: anem_fleet
-#: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_fuels__company_id
-msgid "Company"
+#: model:ir.model.fields,help:anem_fleet.field_fleet_vehicle__cgrise
+#: model_terms:ir.ui.view,arch_db:anem_fleet.fleet_vehicle_view_form_anem
+msgid "Carte grise"
 msgstr ""
 
 #. module: anem_fleet
-#: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_fuels__amount
-msgid "Cost"
+#: model_terms:ir.actions.act_window,help:anem_fleet.fleet_vehicle_service_operation_anem
+msgid "Chaque opération utilisé dans une intervention."
 msgstr ""
+
+#. module: anem_fleet
+#: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_services_lines__purchaser_id
+msgid "Chauffeur"
+msgstr ""
+
+#. module: anem_fleet
+#: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_assignation_log__company_id
+#: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_fuels__company_id
+#: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_odometer__company_id
+msgid "Company"
+msgstr "Société"
+
+#. module: anem_fleet
+#: model:res.groups,name:anem_fleet.fleet_group_anem_consult
+msgid "Consultation"
+msgstr ""
+
+#. module: anem_fleet
+#: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle__contract_count
+msgid "Contract Count"
+msgstr "Nombre de contrats"
+
+#. module: anem_fleet
+#: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_fuels__amount
+#: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_services__amount
+msgid "Cost"
+msgstr "Coût"
 
 #. module: anem_fleet
 #: model_terms:ir.actions.act_window,help:anem_fleet.fleet_vehicle_log_fuels_action
 msgid "Create a new fuels entry"
-msgstr ""
+msgstr "Créer une nouvelle entrée de carburants"
 
 #. module: anem_fleet
 #: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_fuels__create_uid
+#: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_services_lines__create_uid
+#: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_services_operation__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Créé par"
 
 #. module: anem_fleet
 #: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_fuels__create_date
+#: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_services_lines__create_date
+#: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_services_operation__create_date
 msgid "Created on"
+msgstr "Créé le"
+
+#. module: anem_fleet
+#: model_terms:ir.actions.act_window,help:anem_fleet.fleet_vehicle_service_operation_anem
+msgid "Crée une nouvelle opération"
 msgstr ""
 
 #. module: anem_fleet
 #: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_fuels__currency_id
 msgid "Currency"
-msgstr ""
+msgstr "Devise"
 
 #. module: anem_fleet
 #: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_fuels__date
+#: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_services_lines__date
 msgid "Date"
 msgstr ""
 
 #. module: anem_fleet
 #: model:ir.model.fields,help:anem_fleet.field_fleet_vehicle_log_fuels__date
+#: model:ir.model.fields,help:anem_fleet.field_fleet_vehicle_log_services_lines__date
 msgid "Date when the cost has been executed"
-msgstr ""
+msgstr "Date à laquelle le coût a été exposé"
 
 #. module: anem_fleet
 #: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_fuels__description
+#: model:ir.model.fields,help:anem_fleet.field_fleet_vehicle_assignation_log__note
+#: model_terms:ir.ui.view,arch_db:anem_fleet.fleet_vehicle_assignation_log_view_list_anem
 msgid "Description"
 msgstr ""
 
 #. module: anem_fleet
 #: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_fuels__display_name
+#: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_services_lines__display_name
+#: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_services_operation__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Afficher le nom"
 
 #. module: anem_fleet
 #: model:ir.model.fields.selection,name:anem_fleet.selection__fleet_vehicle_log_fuels__state__done
@@ -155,14 +199,33 @@ msgid "Done"
 msgstr "Fait"
 
 #. module: anem_fleet
+#: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_assignation_log__driver_id
 #: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_fuels__purchaser_id
 msgid "Driver"
-msgstr ""
+msgstr "Conducteur"
 
 #. module: anem_fleet
+#: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_assignation_log__driver_employee_id
 #: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_fuels__purchaser_employee_id
 msgid "Driver (Employee)"
-msgstr ""
+msgstr "Conducteur (Employé)"
+
+#. module: anem_fleet
+#: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle__history_count
+msgid "Drivers History Count"
+msgstr "Historique des conducteurs"
+
+#. module: anem_fleet
+#: model:ir.model,name:anem_fleet.model_fleet_vehicle_assignation_log
+msgid "Drivers history on a vehicle"
+msgstr "Historique des conducteurs d'un véhicule"
+
+#. module: anem_fleet
+#. odoo-python
+#: code:addons/anem_fleet/models/fleet_vehicle_log_fuels.py:0
+#, python-format
+msgid "Emptying the odometer value of a vehicle is not allowed."
+msgstr "Interdit de vider la valeur du compteur kilométrique d'un véhicule."
 
 #. module: anem_fleet
 #: model:ir.model.fields.selection,name:anem_fleet.selection__fleet_vehicle_log_fuels__payment_method__espece
@@ -170,94 +233,182 @@ msgid "Espèce"
 msgstr ""
 
 #. module: anem_fleet
+#: model_terms:ir.ui.view,arch_db:anem_fleet.fleet_vehicle_log_services_view_tree_anem
+msgid "Extraire en details"
+msgstr ""
+
+#. module: anem_fleet
 #: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_fuels__manager_id
 msgid "Fleet Manager"
-msgstr ""
+msgstr "Gestionnaire du parc automobile"
 
 #. module: anem_fleet
 #: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_fuels__message_follower_ids
 msgid "Followers"
-msgstr ""
+msgstr "Abonnés"
 
 #. module: anem_fleet
 #: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_fuels__message_partner_ids
 msgid "Followers (Partners)"
-msgstr ""
+msgstr "Abonnés (Partenaires)"
 
 #. module: anem_fleet
 #: model:ir.model.fields,help:anem_fleet.field_fleet_vehicle_log_fuels__activity_type_icon
 msgid "Font awesome icon e.g. fa-tasks"
+msgstr "Icône Font Awesome par ex. fa-tasks"
+
+#. module: anem_fleet
+#: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_fuels__vendor
+#: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_services__vendor
+#: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_services_lines__vendor
+msgid "Fournisseur"
 msgstr ""
+
+#. module: anem_fleet
+#: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle__fuel_count
+msgid "Fuel Count"
+msgstr "Nombre d'entrée carburant"
 
 #. module: anem_fleet
 #: model_terms:ir.ui.view,arch_db:anem_fleet.fleet_vehicle_log_services_view_tree
 msgid "Fuels Logs"
-msgstr ""
+msgstr "Historique de carburant"
 
 #. module: anem_fleet
 #: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_fuels__has_message
 msgid "Has Message"
-msgstr ""
+msgstr "A un message"
 
 #. module: anem_fleet
 #: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_fuels__id
+#: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_services_lines__id
+#: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_services_operation__id
 msgid "ID"
 msgstr ""
 
 #. module: anem_fleet
 #: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_fuels__activity_exception_icon
 msgid "Icon"
-msgstr ""
+msgstr "Icône"
 
 #. module: anem_fleet
 #: model:ir.model.fields,help:anem_fleet.field_fleet_vehicle_log_fuels__activity_exception_icon
 msgid "Icon to indicate an exception activity."
-msgstr ""
+msgstr "Icône pour indiquer une activité d'exception."
 
 #. module: anem_fleet
 #: model:ir.model.fields,help:anem_fleet.field_fleet_vehicle_log_fuels__message_needaction
 msgid "If checked, new messages require your attention."
-msgstr ""
+msgstr "Si coché, de nouveaux messages demandent votre attention."
 
 #. module: anem_fleet
 #: model:ir.model.fields,help:anem_fleet.field_fleet_vehicle_log_fuels__message_has_error
 #: model:ir.model.fields,help:anem_fleet.field_fleet_vehicle_log_fuels__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
+msgstr "Si coché, certains messages ont une erreur de livraison."
+
+#. module: anem_fleet
+#: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle__photo
+msgid "Image"
+msgstr ""
+
+#. module: anem_fleet
+#: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_services_lines__service_id
+msgid "Interventions ID"
+msgstr ""
+
+#. module: anem_fleet
+#: model:ir.actions.act_window,name:anem_fleet.fleet_vehicle_service_lines_anem
+#: model:ir.ui.menu,name:anem_fleet.fleet_vehicle_service_service_lines_menu
+msgid "Interventions details"
 msgstr ""
 
 #. module: anem_fleet
 #: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_fuels__message_is_follower
 msgid "Is Follower"
+msgstr "Est un abonné"
+
+#. module: anem_fleet
+#: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_services_lines__odometer
+msgid "Kilométrage"
+msgstr ""
+
+#. module: anem_fleet
+#: model:ir.model.fields,help:anem_fleet.field_fleet_vehicle__photo
+msgid "La photo de la voiture"
 msgstr ""
 
 #. module: anem_fleet
 #: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_fuels____last_update
+#: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_services_lines____last_update
+#: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_services_operation____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Dernière modification le"
 
 #. module: anem_fleet
 #: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_fuels__write_uid
+#: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_services_lines__write_uid
+#: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_services_operation__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Dernière mise à jour par"
 
 #. module: anem_fleet
 #: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_fuels__write_date
+#: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_services_lines__write_date
+#: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_services_operation__write_date
 msgid "Last Updated on"
+msgstr "Dernière mise à jour le"
+
+#. module: anem_fleet
+#: model:ir.model,name:anem_fleet.model_fleet_vehicle_log_services_operation
+msgid "Les opération utilisées "
+msgstr ""
+
+#. module: anem_fleet
+#: model:ir.actions.act_window,name:anem_fleet.fleet_vehicle_service_operation_anem
+msgid "Les opérations"
+msgstr ""
+
+#. module: anem_fleet
+#: model:ir.model,name:anem_fleet.model_fleet_vehicle_log_services_lines
+msgid "Les prix"
+msgstr ""
+
+#. module: anem_fleet
+#: model_terms:ir.ui.view,arch_db:anem_fleet.login_page_layout
+msgid "Logo"
 msgstr ""
 
 #. module: anem_fleet
 #: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_fuels__message_main_attachment_id
 msgid "Main Attachment"
-msgstr ""
+msgstr "Pièce jointe principale"
 
 #. module: anem_fleet
 #: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_fuels__message_has_error
 msgid "Message Delivery error"
-msgstr ""
+msgstr "Erreur d'envoi du message"
 
 #. module: anem_fleet
 #: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_fuels__message_ids
 msgid "Messages"
+msgstr ""
+
+#. module: anem_fleet
+#: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_services_lines__operation_price
+#: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_services_lines__total_amount
+#: model_terms:ir.ui.view,arch_db:anem_fleet.fleet_vehicle_log_services_view_form_operation_anem
+msgid "Montant"
+msgstr ""
+
+#. module: anem_fleet
+#: model_terms:ir.ui.view,arch_db:anem_fleet.fleet_vehicle_log_services_view_form_operation_anem
+msgid "Montant TOTAL"
+msgstr ""
+
+#. module: anem_fleet
+#: model_terms:ir.ui.view,arch_db:anem_fleet.fleet_vehicle_log_services_view_form_operation_anem
+msgid "Montant Total"
 msgstr ""
 
 #. module: anem_fleet
@@ -268,6 +419,13 @@ msgstr ""
 #. module: anem_fleet
 #: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_fuels__my_activity_date_deadline
 msgid "My Activity Deadline"
+msgstr "Échéance de mon activité"
+
+#. module: anem_fleet
+#: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_services_lines__operation_id
+#: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_services_operation__operation
+#: model_terms:ir.ui.view,arch_db:anem_fleet.fleet_vehicle_log_services_view_form_operation_anem
+msgid "Nature de l'opération"
 msgstr ""
 
 #. module: anem_fleet
@@ -279,16 +437,21 @@ msgstr "Nouveau"
 #. module: anem_fleet
 #: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_fuels__activity_date_deadline
 msgid "Next Activity Deadline"
-msgstr ""
+msgstr "Date limite de l'activité à venir"
 
 #. module: anem_fleet
 #: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_fuels__activity_summary
 msgid "Next Activity Summary"
-msgstr ""
+msgstr "Résumé de l'activité suivante"
 
 #. module: anem_fleet
 #: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_fuels__activity_type_id
 msgid "Next Activity Type"
+msgstr "Type d'activités à venir"
+
+#. module: anem_fleet
+#: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_assignation_log__note
+msgid "Note"
 msgstr ""
 
 #. module: anem_fleet
@@ -300,43 +463,100 @@ msgstr ""
 #. module: anem_fleet
 #: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_fuels__message_needaction_counter
 msgid "Number of Actions"
-msgstr ""
+msgstr "Nombre d'actions"
 
 #. module: anem_fleet
 #: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_fuels__message_has_error_counter
 msgid "Number of errors"
-msgstr ""
+msgstr "Nombre d'erreurs"
 
 #. module: anem_fleet
 #: model:ir.model.fields,help:anem_fleet.field_fleet_vehicle_log_fuels__message_needaction_counter
 msgid "Number of messages which requires an action"
-msgstr ""
+msgstr "Nombre de messages exigeant une action"
 
 #. module: anem_fleet
 #: model:ir.model.fields,help:anem_fleet.field_fleet_vehicle_log_fuels__message_has_error_counter
 msgid "Number of messages with delivery error"
+msgstr "Nombre de messages avec des erreurs d'envoi"
+
+#. module: anem_fleet
+#: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_fuels__facture
+#: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_services__facture
+#: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_services_lines__facture
+#: model_terms:ir.ui.view,arch_db:anem_fleet.fleet_vehicle_log_services_view_tree_anem
+msgid "N° Facture"
 msgstr ""
 
 #. module: anem_fleet
+#: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_fuels__bon
+msgid "N° de bon"
+msgstr ""
+
+#. module: anem_fleet
+#: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle__odometer_count
 #: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_fuels__odometer_id
 msgid "Odometer"
-msgstr ""
+msgstr "Odomètre"
 
 #. module: anem_fleet
 #: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_fuels__odometer
 msgid "Odometer Value"
-msgstr ""
+msgstr "Relevés kilométriques"
+
+#. module: anem_fleet
+#: model:ir.model,name:anem_fleet.model_fleet_vehicle_odometer
+msgid "Odometer log for a vehicle"
+msgstr "Relevés kilométriques pour le véhicule"
 
 #. module: anem_fleet
 #: model:ir.model.fields,help:anem_fleet.field_fleet_vehicle_log_fuels__odometer
 #: model:ir.model.fields,help:anem_fleet.field_fleet_vehicle_log_fuels__odometer_id
+#: model:ir.model.fields,help:anem_fleet.field_fleet_vehicle_log_services_lines__odometer
 msgid "Odometer measure of the vehicle at the moment of this log"
+msgstr "Mesure au compteur kilométrique du véhicule au moment de ce journal"
+
+#. module: anem_fleet
+#: model:ir.ui.menu,name:anem_fleet.fleet_vehicle_service_operation_menu
+msgid "Operations"
+msgstr ""
+
+#. module: anem_fleet
+#: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_fuels__pieces_lines
+#: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_services__pieces_lines
+msgid "Opération"
+msgstr ""
+
+#. module: anem_fleet
+#: model:ir.model.constraint,message:anem_fleet.constraint_fleet_vehicle_log_services_operation_operation
+msgid "Opération deja exist"
+msgstr ""
+
+#. module: anem_fleet
+#: model_terms:ir.ui.view,arch_db:anem_fleet.fleet_vehicle_view_form_anem
+msgid "Photo"
+msgstr ""
+
+#. module: anem_fleet
+#: model_terms:ir.ui.view,arch_db:anem_fleet.fleet_vehicle_log_services_view_form_operation_anem
+msgid "Prix U"
+msgstr ""
+
+#. module: anem_fleet
+#: model_terms:ir.ui.view,arch_db:anem_fleet.fleet_vehicle_log_services_view_form_operation_anem
+msgid "Qty"
+msgstr ""
+
+#. module: anem_fleet
+#: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_services_lines__qty
+#: model_terms:ir.ui.view,arch_db:anem_fleet.fleet_vehicle_log_services_view_form_operation_anem
+msgid "Quantité"
 msgstr ""
 
 #. module: anem_fleet
 #: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_fuels__activity_user_id
 msgid "Responsible User"
-msgstr ""
+msgstr "Utilisateur responsable"
 
 #. module: anem_fleet
 #: model:ir.model.fields.selection,name:anem_fleet.selection__fleet_vehicle_log_fuels__state__running
@@ -347,17 +567,28 @@ msgstr "En cours"
 #. module: anem_fleet
 #: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_fuels__message_has_sms_error
 msgid "SMS Delivery error"
+msgstr "Erreur d'envoi SMS"
+
+#. module: anem_fleet
+#: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_services_operation__sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: anem_fleet
+#: model_terms:ir.ui.view,arch_db:anem_fleet.fleet_vehicle_log_services_view_form_operation_anem
+msgid "Service Details"
 msgstr ""
 
 #. module: anem_fleet
 #: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_fuels__service_type_id
+#: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_services_lines__service_type_id
 msgid "Service Type"
-msgstr ""
+msgstr "Type d'intervention"
 
 #. module: anem_fleet
-#: model_terms:ir.ui.view,arch_db:anem_fleet.fleet_vehicle_view_form_anem
+#: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle__service_count
 msgid "Services"
-msgstr ""
+msgstr "Interventions"
 
 #. module: anem_fleet
 #: model:ir.model,name:anem_fleet.model_fleet_vehicle_log_services
@@ -378,6 +609,15 @@ msgid ""
 "Today: Activity date is today\n"
 "Planned: Future activities."
 msgstr ""
+"Statut basé sur les activités\n"
+"En retard : la date d'échéance est déjà dépassée\n"
+"Aujourd'hui : la date d'activité est aujourd'hui\n"
+"Planifiée : activités futures"
+
+#. module: anem_fleet
+#: model_terms:ir.ui.view,arch_db:anem_fleet.fleet_vehicle_log_services_view_form_operation_anem
+msgid "TOTAL Intervention"
+msgstr ""
 
 #. module: anem_fleet
 #: model_terms:ir.ui.view,arch_db:anem_fleet.fleet_vehicle_log_services_view_tree
@@ -387,61 +627,94 @@ msgstr ""
 #. module: anem_fleet
 #: model_terms:ir.actions.act_window,help:anem_fleet.fleet_vehicle_log_fuels_action
 msgid "Track all the fuels done on your vehicle."
-msgstr ""
+msgstr "Suivez tous les carburants remplis sur votre véhicule."
 
 #. module: anem_fleet
 #: model:ir.model.fields,help:anem_fleet.field_fleet_vehicle_log_fuels__activity_exception_decoration
 msgid "Type of the exception activity on record."
-msgstr ""
+msgstr "Type d'activité d'exception enregistrée."
 
 #. module: anem_fleet
 #: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_fuels__odometer_unit
 msgid "Unit"
+msgstr "Unité"
+
+#. module: anem_fleet
+#: model:res.groups,name:anem_fleet.fleet_group_anem_user
+msgid "Utilisateur wilaya"
 msgstr ""
 
 #. module: anem_fleet
+#: model:ir.model,name:anem_fleet.model_fleet_vehicle
 #: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_fuels__vehicle_id
 msgid "Vehicle"
-msgstr ""
+msgstr "Véhicule"
 
 #. module: anem_fleet
 #: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_fuels__vendor_id
 msgid "Vendor"
-msgstr ""
+msgstr "Fourniseur"
 
 #. module: anem_fleet
 #: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_fuels__inv_ref
 msgid "Vendor Reference"
-msgstr ""
+msgstr "Fourniseur référence"
 
 #. module: anem_fleet
 #: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_fuels__website_message_ids
 msgid "Website Messages"
-msgstr ""
+msgstr "Messages du site web"
 
 #. module: anem_fleet
 #: model:ir.model.fields,help:anem_fleet.field_fleet_vehicle_log_fuels__website_message_ids
 msgid "Website communication history"
-msgstr ""
+msgstr "Historique de communication du site web"
 
 #. module: anem_fleet
 #: model_terms:ir.ui.view,arch_db:anem_fleet.fleet_vehicle_log_fuels_view_form
+#: model_terms:ir.ui.view,arch_db:anem_fleet.fleet_vehicle_log_services_view_form_operation_anem
 msgid "Write here any other information related to the service completed."
 msgstr ""
+"Écrivez ici toute autre information relative à l'intervention effectuée"
+
+#. module: anem_fleet
+#: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle__cgrise
+msgid "cartegrise"
+msgstr "Carte grise"
+
+#. module: anem_fleet
+#: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_services_lines__currency_id
+msgid "currency"
+msgstr "Devise"
 
 #. module: anem_fleet
 #: model_terms:ir.ui.view,arch_db:anem_fleet.fleet_vehicle_log_fuels_view_form
 msgid "fuels Logs"
-msgstr ""
+msgstr "Historique des carburants"
 
 #. module: anem_fleet
 #: model:ir.model,name:anem_fleet.model_fleet_vehicle_log_fuels
 msgid "fuels for vehicles"
+msgstr "carburant pour les véhicules"
+
+#. module: anem_fleet
+#: model_terms:ir.ui.view,arch_db:anem_fleet.fleet_vehicle_log_services_view_form_operation_anem
+msgid "informations supplémentaires"
 msgstr ""
+
+#. module: anem_fleet
+#: model_terms:ir.ui.view,arch_db:anem_fleet.fleet_vehicle_log_services_lines_view_tree
+msgid "operation Logs"
+msgstr "Historique des opérations"
 
 #. module: anem_fleet
 #: model_terms:ir.ui.view,arch_db:anem_fleet.fleet_vehicle_view_form_anem
 msgid "show the fuels logs for this vehicle"
+msgstr "afficher l'historique de carburant pour ce véhicule"
+
+#. module: anem_fleet
+#: model:ir.model.fields,field_description:anem_fleet.field_fleet_vehicle_log_services_lines__vehicle_id
+msgid "véhicule"
 msgstr ""
 
 #. module: anem_fleet
