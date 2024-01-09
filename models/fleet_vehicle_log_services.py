@@ -1,4 +1,5 @@
-from odoo import api, fields, models
+from odoo import api, fields, models, _
+from odoo.exceptions import UserError
 
 
 class FleetVehicleLogServices(models.Model):
@@ -15,6 +16,18 @@ class FleetVehicleLogServices(models.Model):
     facture = fields.Char('N° Facture')
     pieces_lines = fields.One2many('fleet.vehicle.log.services.lines', 'service_id', string="Opération")
     amount = fields.Monetary('Cost', compute="_count_services", inverse="_inverse_count_services", store=True)
+
+    def _set_odometer(self):
+        for record in self:
+            if not record.odometer:
+                raise UserError(_('Emptying the odometer value of a vehicle is not allowed.'))
+            odometer = self.env['fleet.vehicle.odometer'].create({
+                'value': record.odometer,
+                'date': record.date or fields.Date.context_today(record),
+                'vehicle_id': record.vehicle_id.id,
+                'chauffeur_id': record.purchaser_id.id
+            })
+            self.odometer_id = odometer
 
     @api.depends('pieces_lines')
     def _count_services(self):

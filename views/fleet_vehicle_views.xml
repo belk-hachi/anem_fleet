@@ -23,6 +23,12 @@
             <xpath expr="//field[@name='future_driver_id']"  position="attributes">
                 <attribute name="invisible">True</attribute>
             </xpath>
+            <xpath expr="//field[@name='manager_id']"  position="attributes">
+                <attribute name="invisible">True</attribute>
+            </xpath>
+            <xpath expr="//field[@name='vin_sn']"  position="after">
+                <field name="assurance"/>
+            </xpath>
             <xpath expr="//field[@name='plan_to_change_car']"  position="attributes">
                 <attribute name="invisible">True</attribute>
             </xpath>
@@ -42,6 +48,12 @@
             <xpath expr="//notebook/page[3]" position="before">
                 <page string="Photo">
                     <field name="photo" widget="image" />
+                </page>
+                <page string="Carte grise">
+                    <field name="cgrise" widget="image" />
+                </page>
+                <page string="Décision d'affectation">
+                    <field name="affectation" widget="image" />
                 </page>
             </xpath>
              <xpath expr="//notebook/page[2]" position="attributes">
@@ -164,9 +176,17 @@
         <field name="arch" type="xml">
             <field name="driver_id" position="attributes">
                 <attribute name="domain">['&amp;',('is_company', '=', False), '|', ('company_id', '=', False ), ('company_id', '=', company_id)]</attribute>
+                <attribute name="invisible">True</attribute>
             </field>
+
             <field name="unit" position="after">
                 <field name="company_id" optional="hide"/>
+            </field>
+            <field name="driver_id" position="replace">
+                <field name="chauffeur_id" />
+            </field>
+            <field name="chauffeur_id" position="attributes">
+                <attribute name="domain">['&amp;',('is_company', '=', False), '|', ('company_id', '=', False ), ('company_id', '=', company_id)]</attribute>
             </field>
         </field>
     </record>

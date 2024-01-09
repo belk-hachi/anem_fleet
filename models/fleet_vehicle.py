@@ -8,7 +8,11 @@ from odoo import _, fields, models, api, tools
 class FleetVehicle(models.Model):
     _inherit = 'fleet.vehicle'
 
-    photo = fields.Image(string="Image", max_width=600 , max_height=400 , help="La photo de la voiture")
+    photo = fields.Image(string="Image", max_width=600, max_height=400, help="La photo de la voiture")
+    cgrise = fields.Image(string="cartegrise", max_width=640, max_height=800, help="Carte grise")
+    affectation = fields.Image(string="affectation", max_width=640, max_height=800, help="Décision d'affectation")
+    assurance = fields.Char('N° Police Assurance')
+
 
     fuel_count = fields.Integer(compute="_compute_count_all", string='Fuel Count')
     service_count = fields.Integer(compute="_compute_count_all", string='Services')

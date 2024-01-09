@@ -7,11 +7,16 @@
         <field name="inherit_id" ref="fleet.fleet_vehicle_log_services_view_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='vendor_id']" position="replace">
-                <field name="vendor"/>
-                <field name="facture"/>
+                <field name="vendor" required="True"/>
+                <field name="facture" required="True"/>
                 <field name="company_id" invisible="1"/>
             </xpath>
             <xpath expr="//field[@name='description']" position="replace"></xpath>
+            <xpath expr="//div[@class='oe_chatter']" position="replace">
+                <div class="oe_chatter">
+                    <field name="activity_ids"/>
+                </div>
+            </xpath>
             <field name="purchaser_id" position="attributes">
                 <attribute name="domain">['&amp;',('is_company', '=', False), '|', ('company_id', '=', False ),
                     ('company_id', '=', company_id)]
@@ -33,12 +38,12 @@
             </xpath>
             <xpath expr="//field[@name='vendor_id']" position="replace">
                 <field name="amount"/>
-                <field name="vendor"/>
+                <field name="vendor" required="True"/>
                 <field name="odometer"/>
             </xpath>
             <xpath expr="//field[@name='state']" position="after">
                 <field name="company_id" optional="hide"/>
-                <field name="facture" string="N° Facture" optional="hide"/>
+                <field name="facture" string="N° Facture" required="True" optional="hide" />
             </xpath>
         </field>
     </record>
