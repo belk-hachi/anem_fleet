@@ -1,6 +1,5 @@
 # -*- coding:utf-8 -*-
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
-from datetime import datetime
 from collections import defaultdict
 
 from odoo import _, fields, models, api, tools, exceptions
@@ -19,10 +18,10 @@ class FleetVehicle(models.Model):
 
     vidange = fields.Float(string='Prochain Vidange', help="Prochain Vidange")
     vidange_count = fields.Float(string="Km jusqu'à vidange", compute='_compute_vidange_reste')
-    alert_odometer = fields.Boolean(string='Alert Odometer', compute='_compute_vidange_reste')
+    alert_odometer = fields.Boolean(string='Alert Odometer', compute='_compute_alerts')
 
     controle_date = fields.Date(string='Contrôle technique')
-    jours_reste = fields.Integer(string='Days Difference', compute='_compute_controle_reste')
+    jours_reste = fields.Integer(string='Days Difference', compute='_compute_alerts')
     alert_controle = fields.Boolean(string='Alert Controle technique', compute='_compute_controle_reste')
 
     fuel_count = fields.Integer(compute="_compute_count_all", string='Fuel Count')
@@ -31,18 +30,21 @@ class FleetVehicle(models.Model):
     history_count = fields.Integer(compute="_compute_count_all", string="Drivers History Count")
     contract_count = fields.Integer(compute="_compute_count_all", string='Contract Count')
 
-    @api.depends('vidange', 'odometer')
-    def _compute_vidange_reste(self):
+    @api.depends('vidange', 'odometer', 'controle_date')
+    def _compute_alerts(self):
+        now = fields.Date.today()
         for record in self:
             record.vidange_count = (record.odometer - record.vidange) * -1 if record.vidange else 0
             record.alert_odometer = record.vidange and record.vidange_count < 2000
-
-    @api.depends('controle_date')
-    def _compute_controle_reste(self):
-        now = fields.Date.today()
-        for record in self:
             record.jours_reste = (record.controle_date - now).days if record.controle_date else 0
             record.alert_controle = record.jours_reste < 7 and record.controle_date
+
+            if record.alert_odometer or record.alert_controle:
+                self._tag_alerts(record)
+
+    def _tag_alerts(self, records):
+        records.filtered(lambda r: r.alert_odometer and 15 not in r.tag_ids.ids).write({'tag_ids': [(4, 15)]})
+        records.filtered(lambda r: r.alert_controle and 16 not in r.tag_ids.ids).write({'tag_ids': [(4, 16)]})
 
     def _compute_count_all(self):
         super(FleetVehicle, self)._compute_count_all()

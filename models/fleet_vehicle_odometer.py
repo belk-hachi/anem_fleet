@@ -9,7 +9,7 @@ class FleetVehicleOdometer(models.Model):
 
     company_id = fields.Many2one('res.company', 'Company', compute='_compute_get_company_id')
     chauffeur_id = fields.Many2one('res.partner', string="Conducteur", readonly=False, store=True)
-    active = fields.Boolean('Active', default=True, tracking=True)
+    active = fields.Boolean('Active', default=True)
 
 
     # get the company_id from the vehicle

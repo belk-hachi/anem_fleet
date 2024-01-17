@@ -94,11 +94,11 @@
                         <group>
                                 <group string="Par Kilométrage">
                                     <field name="vidange"/>
-                                    <field name="vidange_count" string="KM Reste"/>
+                                    <field name="vidange_count" string="Km restants"/>
                                 </group>
                                 <group string="Par Date">
                                     <field name="controle_date"/>
-                                    <field name="jours_reste" string="Jours reste" readonly="1"/>
+                                    <field name="jours_reste" string="Jours restants" readonly="1"/>
                                 </group>
                             </group>
                 </page>
@@ -195,6 +195,10 @@
                 <attribute name="decoration-success">state_id == 5 </attribute>
                 <attribute name="decoration-warning">state_id == 6 </attribute>
                 <attribute name="decoration-danger">state_id == 18 </attribute>
+            </xpath>
+            <xpath expr="//field[@name='state_id']"  position="after">
+               <field name="alert_odometer" invisible="True"/>
+                <field name="alert_controle" invisible="True"/>
             </xpath>
             <xpath expr="//tree" position="attributes">
                 <attribute name="default_order">state_id asc</attribute>
