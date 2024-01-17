@@ -36,7 +36,6 @@
                     <field nolabel="1" name="notes" placeholder="Write here any other information related to the service completed."/>
                 </sheet>
                 <div class="oe_chatter">
-                    <field name="activity_ids"/>
                 </div>
             </form>
         </field>

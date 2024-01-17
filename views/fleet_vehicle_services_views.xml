@@ -13,9 +13,7 @@
             </xpath>
             <xpath expr="//field[@name='description']" position="replace"></xpath>
             <xpath expr="//div[@class='oe_chatter']" position="replace">
-                <div class="oe_chatter">
-                    <field name="activity_ids"/>
-                </div>
+
             </xpath>
             <field name="purchaser_id" position="attributes">
                 <attribute name="domain">['&amp;',('is_company', '=', False), '|', ('company_id', '=', False ),

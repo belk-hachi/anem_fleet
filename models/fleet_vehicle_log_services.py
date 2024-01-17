@@ -19,15 +19,22 @@ class FleetVehicleLogServices(models.Model):
 
     def _set_odometer(self):
         for record in self:
-            if not record.odometer:
+            if not record.odometer or record.odometer == 0:
                 raise UserError(_('Emptying the odometer value of a vehicle is not allowed.'))
-            odometer = self.env['fleet.vehicle.odometer'].create({
-                'value': record.odometer,
-                'date': record.date or fields.Date.context_today(record),
-                'vehicle_id': record.vehicle_id.id,
-                'chauffeur_id': record.purchaser_id.id
-            })
-            self.odometer_id = odometer
+            check_existing = self.env['fleet.vehicle.odometer'].search(
+                [('value', '=', record.odometer),
+                 ('date', '=', record.date),
+                 ('vehicle_id', '=', record.vehicle_id.id)], limit=1, order='value desc')
+            if not check_existing:
+                odometer = self.env['fleet.vehicle.odometer'].create({
+                    'value': record.odometer,
+                    'date': record.date or fields.Date.context_today(record),
+                    'vehicle_id': record.vehicle_id.id,
+                    'chauffeur_id': record.purchaser_id.id
+                })
+                self.odometer_id = odometer
+            else:
+                self.odometer_id = check_existing
 
     @api.depends('pieces_lines')
     def _count_services(self):

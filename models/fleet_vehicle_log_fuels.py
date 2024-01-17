@@ -7,6 +7,7 @@ class FleetVehicleLogfuels(models.Model):
     _name = 'fleet.vehicle.log.fuels'
     _description = 'fuels for vehicles'
 
+
     service_type_id = fields.Many2one(
         'fleet.service.type', 'Service Type', required=False,
         default=lambda self: self.env.ref('fleet.type_service_service_7', raise_if_not_found=False),

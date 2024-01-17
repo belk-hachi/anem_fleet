@@ -721,3 +721,16 @@ msgstr ""
 #: model:ir.model.fields,field_description:fleet.field_fleet_vehicle__location
 msgid "Location"
 msgstr "Lieu de stationnement"
+
+#. module: fleet
+#: model:ir.actions.act_window,name:fleet.fleet_vehicle_odometer_action
+#: model:ir.ui.menu,name:fleet.fleet_vehicle_odometer_menu
+msgid "Odometers"
+msgstr "Relevé kilométrique"
+
+#. module: fleet
+#: model:ir.model.fields,field_description:fleet.field_fleet_vehicle__odometer_count
+#: model:ir.model.fields,field_description:fleet.field_fleet_vehicle_log_services__odometer_id
+#: model_terms:ir.ui.view,arch_db:fleet.fleet_vehicle_view_form
+msgid "Odometer"
+msgstr "Kilométrage"

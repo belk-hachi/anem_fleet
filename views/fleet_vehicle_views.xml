@@ -6,6 +6,35 @@
         <field name="model">fleet.vehicle</field>
         <field name="inherit_id" ref="fleet.fleet_vehicle_view_form"/>
         <field name="arch" type="xml">
+
+            <xpath expr="//div[@class='oe_title']"  position="after">
+                <field name="alert_odometer" invisible="1"/>
+                 <div class="alert alert-warning text-center o_form_header alert-dismissible" role="alert" attrs="{'invisible': [('alert_odometer', '=', False)]}">
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" name="close" />
+                        <strong>Alerte :</strong>
+                        N'oubliez pas de faire votre vidange avant d'arriver à <strong><field name="vidange" readonly="1"/> Km </strong>!
+                        Vous avez encore <strong><field name="vidange_count" readonly="1"/></strong> Km à parcourir !
+                </div>
+
+                <field name="alert_controle" invisible="1"/>
+                 <div class="alert alert-warning text-center o_form_header alert-dismissible" role="alert" attrs="{'invisible': [('alert_controle', '=', False)]}">
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" name="close" />
+                        <strong>Alerte :</strong>
+                        N'oubliez pas de réaliser le contrôle technique avant le <strong><field name="controle_date" readonly="1"/> Km </strong>!
+                        Vous avez encore <strong><field name="jours_reste" readonly="1"/></strong> jours !
+                </div>
+            </xpath>
+            <xpath expr="//field[@name='state_id']" position="replace">
+            </xpath>
+
+            <xpath expr="//field[@name='license_plate']" position="after">
+              <div class="oe_right">
+
+                  <label for="state_id" string="Etat de véhicule" class="text-right"/>
+                  <field name="state_id"/>
+              </div>
+            </xpath>
+
             <xpath expr="//field[@name='category_id']"  position="attributes">
                 <attribute name="invisible">True</attribute>
             </xpath>
@@ -28,6 +57,12 @@
             </xpath>
             <xpath expr="//field[@name='vin_sn']"  position="after">
                 <field name="assurance"/>
+            </xpath>
+            <xpath expr="//field[@name='odometer']"  position="attributes">
+                <attribute name="readonly">True</attribute>
+            </xpath>
+             <xpath expr="//field[@name='odometer_unit']"  position="attributes">
+                <attribute name="readonly">True</attribute>
             </xpath>
             <xpath expr="//field[@name='plan_to_change_car']"  position="attributes">
                 <attribute name="invisible">True</attribute>
@@ -55,6 +90,18 @@
                 <page string="Décision d'affectation">
                     <field name="affectation" widget="image" />
                 </page>
+                <page string="Alert entretien">
+                        <group>
+                                <group string="Par Kilométrage">
+                                    <field name="vidange"/>
+                                    <field name="vidange_count" string="KM Reste"/>
+                                </group>
+                                <group string="Par Date">
+                                    <field name="controle_date"/>
+                                    <field name="jours_reste" string="Jours reste" readonly="1"/>
+                                </group>
+                            </group>
+                </page>
             </xpath>
              <xpath expr="//notebook/page[2]" position="attributes">
                 <attribute name="invisible">True</attribute>
@@ -70,9 +117,7 @@
                 </button>
             </xpath>
             <xpath expr="//div[@class='oe_chatter']" position="replace">
-                <div class="oe_chatter">
-                    <field name="activity_ids"/>
-                </div>
+
             </xpath>
         </field>
     </record>
@@ -147,6 +192,9 @@
             </xpath>
             <xpath expr="//field[@name='state_id']"  position="attributes">
                 <attribute name="optional">show</attribute>
+                <attribute name="decoration-success">state_id == 5 </attribute>
+                <attribute name="decoration-warning">state_id == 6 </attribute>
+                <attribute name="decoration-danger">state_id == 18 </attribute>
             </xpath>
             <xpath expr="//tree" position="attributes">
                 <attribute name="default_order">state_id asc</attribute>
