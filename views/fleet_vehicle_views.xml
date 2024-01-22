@@ -30,8 +30,12 @@
             <xpath expr="//field[@name='license_plate']" position="after">
               <div class="oe_right">
 
-                  <label for="state_id" string="Etat de véhicule" class="text-right"/>
-                  <field name="state_id"/>
+                  <label for="state_id" string="Etat de véhicule"  />
+                  <field name="state_id"
+                         decoration-success="state_id == 5"
+                         decoration-warning="state_id == 6"
+                         decoration-danger="state_id == 18"
+                         class="text-center" />
               </div>
             </xpath>
 

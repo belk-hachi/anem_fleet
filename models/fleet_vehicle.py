@@ -33,18 +33,24 @@ class FleetVehicle(models.Model):
     @api.depends('vidange', 'odometer', 'controle_date')
     def _compute_alerts(self):
         now = fields.Date.today()
+        params = self.env['ir.config_parameter'].sudo()
+        controle_date_alert = int(params.get_param('anem_fleet.controle_date_alert', default=7))
+        vidange_km_alert = int(params.get_param('anem_fleet.vidange_km_alert', default=2000))
         for record in self:
             record.vidange_count = (record.odometer - record.vidange) * -1 if record.vidange else 0
-            record.alert_odometer = record.vidange and record.vidange_count < 2000
+            record.alert_odometer = record.vidange and record.vidange_count < vidange_km_alert
             record.jours_reste = (record.controle_date - now).days if record.controle_date else 0
-            record.alert_controle = record.jours_reste < 7 and record.controle_date
+            record.alert_controle = record.jours_reste < controle_date_alert and record.controle_date
 
             if record.alert_odometer or record.alert_controle:
                 self._tag_alerts(record)
 
     def _tag_alerts(self, records):
-        records.filtered(lambda r: r.alert_odometer and 15 not in r.tag_ids.ids).write({'tag_ids': [(4, 15)]})
-        records.filtered(lambda r: r.alert_controle and 16 not in r.tag_ids.ids).write({'tag_ids': [(4, 16)]})
+        params = self.env['ir.config_parameter'].sudo()
+        vidange_tag = int(params.get_param('anem_fleet.vidange_tag_id', default=15))
+        controle_tag = int(params.get_param('anem_fleet.controle_tag_id', default=16))
+        records.filtered(lambda r: r.alert_odometer and vidange_tag not in r.tag_ids.ids).write({'tag_ids': [(4, vidange_tag)]})
+        records.filtered(lambda r: r.alert_controle and controle_tag not in r.tag_ids.ids).write({'tag_ids': [(4, controle_tag)]})
 
     def _compute_count_all(self):
         super(FleetVehicle, self)._compute_count_all()

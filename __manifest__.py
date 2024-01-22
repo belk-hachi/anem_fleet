@@ -13,6 +13,7 @@
         'views/fleet_vehicle_fuels_views.xml',
         'views/fleet_vehicle_services_views.xml',
         'views/fleet_vehicle_services_operation_views.xml',
+        'views/res_config_settings_views.xml',
         'views/login_templates.xml',
         'views/menu.xml',
 

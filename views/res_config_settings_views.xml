@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.hr.anem.fleet</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="fleet.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='fleet']" position="replace">
+                <div class="app_settings_block" data-string="Fleet" id="fleet" string="ANEM Voiture" data-key="fleet" groups="fleet.fleet_group_manager">
+                        <h2>Parc Automobile</h2>
+                        <div class="row mt16 o_settings_container" id="alert_vidange_controle">
+
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane"/>
+                            <div class="o_setting_right_pane">
+                            <span class="o_form_label">Vidange alerte</span>
+                            <div class="text-muted content-group mt16">
+                                <span>Envoyer une alerte avant </span>
+                                <field name="vidange_km_alert" class="text-center" style="width: 10%; min-width: 4rem;" />
+                                <span> Km pour faire le vidange.</span>
+                                <div class="content-group">
+                                    <div class="mt16">
+                                        <label for="vidange_tag_id" class="col-3 col-lg-3 o_light_label" string="Étiquette "/>
+                                        <field name="vidange_tag_id" class="oe_inline text-center"/>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-lg-6 o_setting_box">
+                            <div class="o_setting_left_pane"/>
+                            <div class="o_setting_right_pane">
+                            <span class="o_form_label">Controle technique alerte</span>
+                            <div class="text-muted content-group mt16">
+                                <span>Envoyer une alerte </span>
+                                <field name="controle_date_alert" class="text-center" style="width: 10%; min-width: 4rem;" />
+                                <span> jours avant la date de fin.</span>
+                                <div class="content-group">
+                                    <div class="mt16">
+                                        <label for="controle_tag_id" class="col-3 col-lg-3 o_light_label" string="Étiquette "/>
+                                        <field name="controle_tag_id" class="oe_inline text-center"/>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
