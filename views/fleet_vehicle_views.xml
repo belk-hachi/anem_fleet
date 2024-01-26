@@ -64,6 +64,7 @@
             </xpath>
             <xpath expr="//field[@name='odometer']"  position="attributes">
                 <attribute name="readonly">True</attribute>
+                <attribute name="widget">integer</attribute>
             </xpath>
              <xpath expr="//field[@name='odometer_unit']"  position="attributes">
                 <attribute name="readonly">True</attribute>
@@ -234,7 +235,9 @@
                 <attribute name="domain">['&amp;',('is_company', '=', False), '|', ('company_id', '=', False ), ('company_id', '=', company_id)]</attribute>
                 <attribute name="invisible">True</attribute>
             </field>
-
+             <field name='value'  position="attributes">
+                <attribute name="widget">integer</attribute>
+            </field>
             <field name="unit" position="after">
                 <field name="company_id" optional="hide"/>
             </field>

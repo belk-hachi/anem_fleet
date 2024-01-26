@@ -26,7 +26,7 @@
                             <field name="purchaser_id" domain="['&amp;',('is_company', '=', False), '|', ('company_id', '=', False ), ('company_id', '=', company_id)]"/>
                             <label for="odometer"/>
                             <div class="o_row">
-                                <field name="odometer" class="w-25"/>
+                                <field name="odometer" widget="integer" class="w-25"/>
                                 <field name="odometer_unit" class="ps-1 ps-sm-0"/>
                             </div>
                             <field name="company_id" invisible="1"/>
@@ -54,10 +54,10 @@
                 <field name="payment_method" optional="show" />
                 <field name="inv_ref" invisible="1" />
                 <field name="notes" optional="show" />
-                <field name="amount" sum="Total" widget="monetary"/>
+                <field name="amount" sum="Total" widget="monetary" />
                 <field name="currency_id" invisible="1"/>
                 <field name="bon" optional="show"/>
-                <field name="odometer" optional="show"/>
+                <field name="odometer" widget="integer" optional="show"/>
                 <field name="state" readonly="1" widget="badge" decoration-success="state == 'done'" decoration-warning="state == 'new'"  decoration-info="state == 'running'" />
             </tree>
         </field>

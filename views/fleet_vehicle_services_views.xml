@@ -11,9 +11,11 @@
                 <field name="facture" required="True"/>
                 <field name="company_id" invisible="1"/>
             </xpath>
+            <xpath expr="//field[@name='odometer']"  position="attributes">
+                <attribute name="widget">integer</attribute>
+            </xpath>
             <xpath expr="//field[@name='description']" position="replace"></xpath>
             <xpath expr="//div[@class='oe_chatter']" position="replace">
-
             </xpath>
             <field name="purchaser_id" position="attributes">
                 <attribute name="domain">['&amp;',('is_company', '=', False), '|', ('company_id', '=', False ),
@@ -35,10 +37,11 @@
                 </header>
             </xpath>
             <xpath expr="//field[@name='vendor_id']" position="replace">
-                <field name="amount"/>
                 <field name="vendor" required="True"/>
-                <field name="odometer"/>
             </xpath>
+            <field name="odometer" position="attributes">
+                <attribute name="widget">integer</attribute>
+            </field>
             <xpath expr="//field[@name='state']" position="after">
                 <field name="company_id" optional="hide"/>
                 <field name="facture" string="N° Facture" required="True" optional="hide" />
