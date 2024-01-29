@@ -14,6 +14,8 @@
             <xpath expr="//field[@name='odometer']"  position="attributes">
                 <attribute name="widget">integer</attribute>
             </xpath>
+            <xpath expr="//field[@name='state']"  position="replace">
+            </xpath>
             <xpath expr="//field[@name='description']" position="replace"></xpath>
             <xpath expr="//div[@class='oe_chatter']" position="replace">
             </xpath>
@@ -45,6 +47,9 @@
             <xpath expr="//field[@name='state']" position="after">
                 <field name="company_id" optional="hide"/>
                 <field name="facture" string="N° Facture" required="True" optional="hide" />
+            </xpath>
+            <xpath expr="//field[@name='state']" position="attributes">
+                <attribute name="invisible">True</attribute>
             </xpath>
         </field>
     </record>

@@ -20,6 +20,12 @@ class FleetVehicleLogfuels(models.Model):
         ('autre', 'Autre')
     ], default='carte_naftal', string='Moyen de paiement ')
 
+    carburant_type = fields.Selection([
+        ('essence', 'Essence'),
+        ('gpl', 'GPL/C'),
+        ('gasoil', 'Gasoil')
+    ], default='essence', string='Type de carburant')
+
     bon = fields.Char('N° de bon')
 
     def _set_odometer(self):

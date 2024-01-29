@@ -9,7 +9,7 @@
                 <field name="active" invisible="1" />
                 <field name="currency_id" invisible="1" />
                 <header>
-                    <field name="state" widget="statusbar" options="{'clickable': '1'}"/>
+
                 </header>
                 <sheet>
                     <widget name="web_ribbon" title="Archived" bg_color="bg-danger" attrs="{'invisible': [('active', '=', True)]}"/>
@@ -18,8 +18,8 @@
                             <field name="description" invisible="1"/>
                             <field name="date" />
                             <field name="amount" widget="monetary"/>
+                            <field name="carburant_type"/>
                             <field name="payment_method"/>
-                            <field name="bon"/>
                         </group>
                         <group>
                             <field name="vehicle_id"/>
@@ -29,6 +29,7 @@
                                 <field name="odometer" widget="integer" class="w-25"/>
                                 <field name="odometer_unit" class="ps-1 ps-sm-0"/>
                             </div>
+                            <field name="bon"/>
                             <field name="company_id" invisible="1"/>
                         </group>
                     </group>
@@ -52,13 +53,14 @@
                 <field name="vehicle_id" readonly="1" widget="many2one_avatar" />
                 <field name="purchaser_id" readonly="1" widget="many2one_avatar"/>
                 <field name="payment_method" optional="show" />
+                <field name="carburant_type" optional="show" />
                 <field name="inv_ref" invisible="1" />
-                <field name="notes" optional="show" />
+                <field name="notes" optional="hide" />
                 <field name="amount" sum="Total" widget="monetary" />
                 <field name="currency_id" invisible="1"/>
-                <field name="bon" optional="show"/>
+                <field name="bon" optional="hide"/>
                 <field name="odometer" widget="integer" optional="show"/>
-                <field name="state" readonly="1" widget="badge" decoration-success="state == 'done'" decoration-warning="state == 'new'"  decoration-info="state == 'running'" />
+                <field name="state" invisible="1" readonly="1" widget="badge" decoration-success="state == 'done'" decoration-warning="state == 'new'"  decoration-info="state == 'running'" />
             </tree>
         </field>
     </record>
